@@ -81,6 +81,13 @@ services:
       - REACT_APP_IDENTITY=https://<%= $facts["networking"]["fqdn"] %>:<%= $https_port %>/auth
       - REACT_APP_ANALYTICS_ENABLED=<%= $analytics %>
 
+  comply:
+    image: "<%= $image_prefix %>comply:<%= $lidar_version %>"
+    environment:
+      - REACT_APP_QUERY_API=https://<%= $facts["networking"]["fqdn"] %>:<%= $https_port %>/query
+      - REACT_APP_IDENTITY=https://<%= $facts["networking"]["fqdn"] %>:<%= $https_port %>/auth
+      - REACT_APP_ANALYTICS_ENABLED=<%= $analytics %>
+
   query:
     tty: true
     image: "<%= $image_prefix %>query:<%= $lidar_version %>"
