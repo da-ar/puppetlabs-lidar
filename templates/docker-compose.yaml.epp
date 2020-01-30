@@ -47,6 +47,8 @@ services:
     environment:
       - MONGODB_DATABASE=reports
       - ALLOW_EMPTY_PASSWORD=yes
+    ports:
+      - 27017:27017
 
   influxdb:
     image: "<%= $image_prefix %>influxdb:<%= $lidar_version %>"
