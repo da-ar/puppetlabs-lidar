@@ -103,6 +103,8 @@ services:
     links:
       - mongo
       - influxdb
+    ports:
+      - 4000:4000
     command: ["./wait-for-it.sh", "-t", "60", "mongo:27017", "--", "npm", "run", "start:mongo-prod"]
 
 volumes:
